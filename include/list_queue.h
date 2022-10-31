@@ -2,6 +2,7 @@
 #define __LIST_QUEUE_H_
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct qnode
 {
