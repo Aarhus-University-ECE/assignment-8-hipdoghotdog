@@ -27,15 +27,16 @@ void enqueue(queue *q, int x)
 {
   // Add your enqueue function
   qnode *newnode = (qnode *)malloc(sizeof(qnode));
-  newnode -> data = x;
+  newnode -> data = x; //Sets x as the data within the new queue item
   newnode -> next = NULL;
-
-  if (q -> rear = NULL){
+//Checks first if the new queue item is the first in the queue
+  if (q -> size == 0){
     q -> rear = newnode;
     q -> front = newnode;
   }
   else{
     q -> rear -> next = newnode;
+    q -> rear = newnode;
 
   }
   q -> size = q -> size + 1;
@@ -47,9 +48,11 @@ int dequeue(queue *q)
   // Add your dequeue function
   int x;
   assert(q -> size > 0);
+  q -> rear = (qnode *)(malloc(sizeof(qnode)));
   x = q -> front -> data;
   q -> front = q -> front -> next;
   q -> size = q -> size - 1;
 
+  
   return x;
 }
