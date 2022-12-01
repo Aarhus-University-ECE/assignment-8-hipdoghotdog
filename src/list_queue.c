@@ -47,12 +47,13 @@ int dequeue(queue *q)
 {
   // Add your dequeue function
   int x;
+  queue *y;
+  y -> front = q->front;
   assert(q -> size > 0);
-  q -> rear = (qnode *)(malloc(sizeof(qnode)));
   x = q -> front -> data;
   q -> front = q -> front -> next;
   q -> size = q -> size - 1;
-
+  free(y);
   
   return x;
 }
